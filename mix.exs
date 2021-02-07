@@ -41,7 +41,8 @@ defmodule CourseHub.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:cowboy, "< 2.8.0", override: true}
+      {:cowboy, "< 2.8.0", override: true},
+      {:bcrypt_elixir, "~> 2.0"}
     ]
   end
 
