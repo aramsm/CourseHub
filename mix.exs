@@ -5,7 +5,7 @@ defmodule CourseHub.MixProject do
     [
       app: :course_hub,
       version: "0.1.0",
-      elixir: "~> 1.7",
+      elixir: "~> 1.10.1",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -40,7 +40,8 @@ defmodule CourseHub.MixProject do
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:cowboy, "< 2.8.0", override: true}
     ]
   end
 
