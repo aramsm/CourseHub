@@ -15,6 +15,6 @@ defmodule CourseHub.Repo.Migrations.CreateOffers do
       timestamps()
     end
 
-    create(index(:offers, :courses_id))
+    create(index(:offers, :course_id))
   end
 end

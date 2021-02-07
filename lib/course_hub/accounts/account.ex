@@ -6,7 +6,7 @@ defmodule CourseHub.Accounts.Account do
 
   @type t :: %__MODULE__{email: String.t(), name: String.t(), password_hash: String.t()}
 
-  schema "accouts" do
+  schema "accounts" do
     field(:email, :string)
     field(:name, :string)
     field(:password_hash, :string)

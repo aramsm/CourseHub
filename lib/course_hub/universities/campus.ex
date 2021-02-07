@@ -5,7 +5,7 @@ defmodule CourseHub.Universities.Campus do
 
   @type t :: %__MODULE__{name: String.t(), city: String.t(), university_id: binary()}
 
-  schema "universities" do
+  schema "campi" do
     field(:city, :string)
     field(:name, :string)
 

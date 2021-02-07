@@ -13,7 +13,7 @@ defmodule CourseHub.Repo.Migrations.CreateCourses do
       timestamps()
     end
 
-    create(index(:courses, :universtity_id))
+    create(index(:courses, :university_id))
     create(unique_index(:courses, [:name, :university_id]))
   end
 end
