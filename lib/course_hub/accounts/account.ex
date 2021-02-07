@@ -21,6 +21,7 @@ defmodule CourseHub.Accounts.Account do
     account
     |> cast(params, @all_fields)
     |> validate_required(@required_fields)
+    |> unique_constraint(:email)
     |> put_password()
   end
 
