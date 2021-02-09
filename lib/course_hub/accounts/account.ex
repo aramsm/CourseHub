@@ -15,9 +15,18 @@ defmodule CourseHub.Accounts.Account do
     timestamps()
   end
 
-  @required_fields ~w(email name password)a
-  @all_fields @required_fields
-  def changeset(account, params) do
+  @required_fields ~w(email name)a
+  @optional_fields ~w(password)a
+  @all_fields @required_fields ++ @optional_fields
+  def changeset(account, params \\ %{}) do
+    account
+    |> cast(params, @all_fields)
+    |> validate_required(@all_fields)
+    |> unique_constraint(:email)
+    |> put_password()
+  end
+
+  def update_changeset(account, params \\ %{}) do
     account
     |> cast(params, @all_fields)
     |> validate_required(@required_fields)
