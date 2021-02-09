@@ -44,7 +44,8 @@ defmodule CourseHub.MixProject do
       {:cowboy, "< 2.8.0", override: true},
       {:bcrypt_elixir, "~> 2.0"},
       {:guardian, "~> 2.0"},
-      {:ex_machina, "~> 2.4", only: :test}
+      {:ex_machina, "~> 2.4", only: :test},
+      {:faker, "~> 0.16", only: :test}
     ]
   end
 

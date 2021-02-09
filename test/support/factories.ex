@@ -3,8 +3,8 @@ defmodule CourseHub.Test.Support.Factories do
 
   def account_factory do
     %CourseHub.Accounts.Account{
-      name: "Jhon Doe",
-      email: "jhon@email.com",
+      name: Faker.Person.name(),
+      email: Faker.Internet.email(),
       password_hash: Bcrypt.hash_pwd_salt("123")
     }
   end
