@@ -23,6 +23,7 @@ defmodule CourseHubWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import CourseHubWeb.ConnCase
+      import CourseHub.Test.Support.Factories
 
       alias CourseHubWeb.Router.Helpers, as: Routes
 

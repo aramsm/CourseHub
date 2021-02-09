@@ -5,7 +5,9 @@ defmodule CourseHubWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", CourseHubWeb do
+  scope "/api/v1", CourseHubWeb do
     pipe_through :api
+
+    post("/sign_in", Accounts.AccountController, :sign_in)
   end
 end

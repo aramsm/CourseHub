@@ -6,6 +6,15 @@ defmodule CourseHub do
   Contexts are also responsible for managing your data, regardless
   if it comes from the database, an external API or others.
   """
+  def context do
+    quote do
+      alias CourseHub.Repo
+
+      import Ecto.Query
+    end
+  end
+
+
   def schema do
     quote do
       alias CourseHub.Repo

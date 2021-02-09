@@ -8,33 +8,22 @@ defmodule CourseHub.Accounts do
   alias CourseHub.Accounts.Account
 
   @doc """
-  Returns the list of accounts.
-
-  ## Examples
-
-      iex> list_accounts()
-      [%Account{}, ...]
-
-  """
-  def list_accounts do
-    Repo.all(Account)
-  end
-
-  @doc """
   Gets a single account.
 
-  Raises `Ecto.NoResultsError` if the Account does not exist.
+  Returns `nil` if the Account does not exist.
 
   ## Examples
 
-      iex> get_account!(123)
+      iex> get_account(%{id: id})
       %Account{}
 
-      iex> get_account!(456)
-      ** (Ecto.NoResultsError)
+      iex> get_account(%{id: "321"})
+      nil
 
   """
-  def get_account!(id), do: Repo.get!(Account, id)
+  def get_account(%{id: id}), do: Repo.get(Account, id)
+  def get_account(%{email: email}), do: Repo.get_by(Account, email: email)
+  def get_account(_), do: nil
 
   @doc """
   Creates a account.
@@ -68,24 +57,20 @@ defmodule CourseHub.Accounts do
   """
   def update_account(%Account{} = account, params) do
     account
-    |> Account.changeset(params)
+    |> Account.update_changeset(params)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a account.
-
-  ## Examples
-
-      iex> delete_account(account)
-      {:ok, %Account{}}
-
-      iex> delete_account(account)
-      {:error, %Ecto.Changeset{}}
-
+  Logs the account in the system
   """
-  def delete_account(%Account{} = account) do
-    Repo.delete(account)
+
+  def sign_in(%Account{} = account, password) do
+    Bcrypt.check_pass(account, password)
+    |> case do
+      {:ok, _} -> {:ok, true}
+      _ -> {:error, false}
+    end
   end
 
   @doc """
