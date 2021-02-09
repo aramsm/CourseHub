@@ -24,6 +24,7 @@ defmodule CourseHub.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import CourseHub.DataCase
+      import CourseHub.Test.Support.Factories
     end
   end
 
