@@ -12,6 +12,6 @@ defmodule CourseHub.Repo.Migrations.CreateCampi do
     end
 
     create(index(:campi, :university_id))
-    create(unique_index(:campi, :name))
+    create(unique_index(:campi, [:name, :university_id]))
   end
 end
