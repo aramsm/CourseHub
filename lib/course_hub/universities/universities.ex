@@ -41,11 +41,16 @@ defmodule CourseHub.Universities do
 
   @spec get_courses(params :: map()) :: List.t()
   def get_courses(params \\ %{}) do
+    limit = Map.get(params, "limit", 10)
+    offset = Map.get(params, "offset", 0)
+
     Course
     |> join(:inner, [schema], u in assoc(schema, :university))
     |> join(:inner, [schema, u], c in assoc(schema, :campus))
     |> FilterBy.filter_by(:courses, params)
     |> select([schema, u, c], [schema, u, c])
+    |> limit(^limit)
+    |> offset(^offset)
     |> Repo.all()
   end
 

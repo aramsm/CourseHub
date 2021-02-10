@@ -11,6 +11,9 @@ defmodule CourseHub.Financials do
 
   @spec get_offers(params :: map()) :: List.t()
   def get_offers(params \\ %{}) do
+    limit = Map.get(params, "limit", 10)
+    offset = Map.get(params, "offset", 0)
+
     Offer
     |> join(:inner, [schema], u in assoc(schema, :university))
     |> join(:inner, [schema, u], ca in assoc(schema, :campus))
@@ -18,6 +21,8 @@ defmodule CourseHub.Financials do
     |> FilterBy.filter_by(:offers, params)
     |> OrderBy.order_by(params)
     |> select([schema, u, ca, c], [schema, u, ca, c])
+    |> limit(^limit)
+    |> offset(^offset)
     |> where(enabled: true)
     |> Repo.all()
   end
