@@ -9,20 +9,18 @@ defmodule CourseHubWeb.Universities.CourseView do
           [c, u, campus] = r
 
           %{
-            course: %{
-              name: c.name,
-              kind: c.kind,
-              level: c.level,
-              shift: c.shift,
-              university: %{
-                name: u.name,
-                score: u.score,
-                logo_url: u.logo_url
-              },
-              campus: %{
-                name: campus.name,
-                city: campus.city
-              }
+            name: c.name,
+            kind: c.kind,
+            level: c.level,
+            shift: c.shift,
+            university: %{
+              name: u.name,
+              score: u.score,
+              logo_url: u.logo_url
+            },
+            campus: %{
+              name: campus.name,
+              city: campus.city
             }
           }
         end)
