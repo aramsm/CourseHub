@@ -1,7 +1,7 @@
 defmodule CourseHub.Universities do
   use CourseHub, :context
 
-  alias CourseHub.Queries
+  alias CourseHub.Queries.FilterBy
   alias CourseHub.Universities.{Campus, Course, University}
 
   ##########
@@ -44,7 +44,7 @@ defmodule CourseHub.Universities do
     Course
     |> join(:inner, [schema], u in assoc(schema, :university))
     |> join(:inner, [schema, u], c in assoc(schema, :campus))
-    |> Queries.FilterBy.filter_by(params)
+    |> FilterBy.filter_by(:courses, params)
     |> select([schema, u, c], [schema, u, c])
     |> Repo.all()
   end
