@@ -33,11 +33,16 @@ defmodule CourseHub.Test.Support.Factories do
     [name, kind] =
       sequence(:name, [["Math", "exacts"], ["Biology", "biologics"], ["Law", "humanities"]])
 
+    university = insert(:university)
+    campus = build(:campus, university: university)
+
     %Course{
       name: name,
       shift: sequence(:shift, ["morning", "evening", "night", "fulltime"]),
       level: sequence(:level, ["1", "2", "3"]),
-      kind: kind
+      kind: kind,
+      campus: campus,
+      university: university
     }
   end
 

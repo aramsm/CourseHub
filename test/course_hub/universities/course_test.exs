@@ -12,7 +12,8 @@ defmodule CourseHub.Universities.CourseTest do
 
   describe "changeset/2" do
     test "inserts a valid changeset", %{university: university, campus: campus} do
-      params = params_for(:course, university_id: university.id, campus_id: campus.id)
+      params =
+        params_for(:course) |> Map.merge(%{university_id: university.id, campus_id: campus.id})
 
       assert {:ok, course} = Course.changeset(%Course{}, params) |> Repo.insert()
 
