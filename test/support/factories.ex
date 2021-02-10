@@ -50,7 +50,7 @@ defmodule CourseHub.Test.Support.Factories do
       discount_percentage: 0.1,
       price_with_discount: price - price * 0.1,
       enabled: true,
-      start_date: Faker.Date.between(~D[2010-01-01], ~D[2046-12-23]),
+      start_date: Faker.Date.between(~D[2010-01-01], ~D[2046-12-23]) |> Date.to_string(),
       course: build(:course)
     }
   end
