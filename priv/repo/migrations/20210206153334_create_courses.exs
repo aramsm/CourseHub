@@ -9,11 +9,13 @@ defmodule CourseHub.Repo.Migrations.CreateCourses do
       add(:level, :string, null: false)
       add(:shift, :string, null: false)
       add(:university_id, references(:universities, on_delete: :delete_all, type: :binary_id))
+      add(:campus_id, references(:campi, on_delete: :nothing, type: :binary_id))
 
       timestamps()
     end
 
     create(index(:courses, :university_id))
+    create(index(:courses, :campus_id))
     create(unique_index(:courses, [:name, :university_id]))
   end
 end

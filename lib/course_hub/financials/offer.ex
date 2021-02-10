@@ -25,7 +25,7 @@ defmodule CourseHub.Financials.Offer do
 
     has_one(:university, through: [:course, :university])
 
-    has_many(:campi, through: [:course, :campi])
+    has_one(:campus, through: [:course, :campus])
 
     timestamps()
   end

@@ -43,7 +43,8 @@ alias CourseHub.{Accounts, Financials, Universities}
     kind: "humanities",
     level: "1",
     shift: "morning",
-    university_id: uni_a.id
+    university_id: uni_a.id,
+    campus_id: campus_a_1.id
   })
 
 {:ok, course_a_2} =
@@ -52,7 +53,8 @@ alias CourseHub.{Accounts, Financials, Universities}
     kind: "exacts",
     level: "1",
     shift: "evening",
-    university_id: uni_a.id
+    university_id: uni_a.id,
+    campus_id: campus_a_2.id
   })
 
 {:ok, course_a_3} =
@@ -61,7 +63,8 @@ alias CourseHub.{Accounts, Financials, Universities}
     kind: "humanities",
     level: "2",
     shift: "night",
-    university_id: uni_a.id
+    university_id: uni_a.id,
+    campus_id: campus_a_1.id
   })
 
 {:ok, course_b_1} =
@@ -70,7 +73,8 @@ alias CourseHub.{Accounts, Financials, Universities}
     kind: "biologics",
     level: "1",
     shift: "fulltime",
-    university_id: uni_b.id
+    university_id: uni_b.id,
+    campus_id: campus_b_1.id
   })
 
 {:ok, course_b_2} =
@@ -79,7 +83,8 @@ alias CourseHub.{Accounts, Financials, Universities}
     kind: "biologics",
     level: "2",
     shift: "night",
-    university_id: uni_b.id
+    university_id: uni_b.id,
+    campus_id: campus_b_2.id
   })
 
 {:ok, course_c_1} =
@@ -88,83 +93,78 @@ alias CourseHub.{Accounts, Financials, Universities}
     kind: "languages",
     level: "1",
     shift: "fulltime",
-    university_id: uni_c.id
+    university_id: uni_c.id,
+    campus_id: campus_c_1.id
   })
 
-  Financials.create_offer(%{
-    full_price: 60.00,
-    price_with_discount: 54.00,
-    discount_percentage: 0.1,
-    start_date: "04/01/2021",
-    enrollment_semester: "1",
-    enabled: true,
-    course_id: course_a_1.id
-  })
+Financials.create_offer(%{
+  full_price: 60.00,
+  price_with_discount: 54.00,
+  discount_percentage: 0.1,
+  start_date: "04/01/2021",
+  enrollment_semester: "1",
+  enabled: true,
+  course_id: course_a_1.id
+})
 
-  Financials.create_offer(%{
-    full_price: 70.21,
-    price_with_discount: 63.00,
-    discount_percentage: 0.1,
-    start_date: "02/08/2021",
-    enrollment_semester: "2",
-    enabled: true,
-    course_id: course_a_2.id
-  })
+Financials.create_offer(%{
+  full_price: 70.21,
+  price_with_discount: 63.00,
+  discount_percentage: 0.1,
+  start_date: "02/08/2021",
+  enrollment_semester: "2",
+  enabled: true,
+  course_id: course_a_2.id
+})
 
-  Financials.create_offer(%{
-    full_price: 69.90,
-    price_with_discount: 62.94,
-    discount_percentage: 0.1,
-    start_date: "04/01/2021",
-    enrollment_semester: "1",
-    enabled: true,
-    course_id: course_a_3.id
-  })
+Financials.create_offer(%{
+  full_price: 69.90,
+  price_with_discount: 62.94,
+  discount_percentage: 0.1,
+  start_date: "04/01/2021",
+  enrollment_semester: "1",
+  enabled: true,
+  course_id: course_a_3.id
+})
 
-  Financials.create_offer(%{
-    full_price: 120.00,
-    price_with_discount: 108.00,
-    discount_percentage: 0.1,
-    start_date: "04/01/2021",
-    enrollment_semester: "1",
-    enabled: true,
-    course_id: course_b_1.id
-  })
+Financials.create_offer(%{
+  full_price: 120.00,
+  price_with_discount: 108.00,
+  discount_percentage: 0.1,
+  start_date: "04/01/2021",
+  enrollment_semester: "1",
+  enabled: true,
+  course_id: course_b_1.id
+})
 
-  Financials.create_offer(%{
-    full_price: 269.00,
-    price_with_discount: 242.10,
-    discount_percentage: 0.1,
-    start_date: "02/08/2021",
-    enrollment_semester: "2",
-    enabled: true,
-    course_id: course_b_2.id
-  })
+Financials.create_offer(%{
+  full_price: 269.00,
+  price_with_discount: 242.10,
+  discount_percentage: 0.1,
+  start_date: "02/08/2021",
+  enrollment_semester: "2",
+  enabled: true,
+  course_id: course_b_2.id
+})
 
-  Financials.create_offer(%{
-    full_price: 119.99,
-    price_with_discount: 107.99,
-    discount_percentage: 0.1,
-    start_date: "04/01/2021",
-    enrollment_semester: "1",
-    enabled: true,
-    course_id: course_c_1.id
-  })
+Financials.create_offer(%{
+  full_price: 119.99,
+  price_with_discount: 107.99,
+  discount_percentage: 0.1,
+  start_date: "04/01/2021",
+  enrollment_semester: "1",
+  enabled: true,
+  course_id: course_c_1.id
+})
 
-  Financials.create_offer(%{
-    full_price: 130.00,
-    price_with_discount: 117.00,
-    discount_percentage: 0.1,
-    start_date: "04/01/2021",
-    enrollment_semester: "1",
-    enabled: false,
-    course_id: course_c_1.id
-  })
+Financials.create_offer(%{
+  full_price: 130.00,
+  price_with_discount: 117.00,
+  discount_percentage: 0.1,
+  start_date: "04/01/2021",
+  enrollment_semester: "1",
+  enabled: false,
+  course_id: course_c_1.id
+})
 
-Universities.create_campus_course(%{campus_id: campus_a_1.id, course_id: course_a_1.id})
-Universities.create_campus_course(%{campus_id: campus_a_2.id, course_id: course_a_2.id})
-Universities.create_campus_course(%{campus_id: campus_a_1.id, course_id: course_a_3.id})
-Universities.create_campus_course(%{campus_id: campus_b_1.id, course_id: course_b_1.id})
-Universities.create_campus_course(%{campus_id: campus_b_2.id, course_id: course_b_2.id})
-Universities.create_campus_course(%{campus_id: campus_c_1.id, course_id: course_c_1.id})
 Accounts.create_account(%{name: "Seed Studant", email: "study@email.com", password: "123456"})
