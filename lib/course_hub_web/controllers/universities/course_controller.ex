@@ -5,7 +5,6 @@ defmodule CourseHubWeb.Universities.CourseController do
 
   def get_courses(conn, params) do
     results = Universities.get_courses(params)
-    params |> IO.inspect()
 
     conn
     |> put_status(200)

@@ -33,3 +33,7 @@ import_config "#{Mix.env()}.exs"
 config :course_hub, CourseHubWeb.Guardian,
   issuer: "course_hub",
   secret_key: "gk6yiGTRDHbfXFVL7aXCbtIZ1s3D5EtOgE3aB6Z6L02xnzCdkC40irwcsH/WJ0jl"
+
+config :course_hub, CourseHubWeb.AuthenticatePipeline,
+  module: CourseHubWeb.Guardian,
+  error_handler: CourseHubWeb.AuthErrorHandler
