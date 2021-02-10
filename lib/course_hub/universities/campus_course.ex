@@ -21,6 +21,6 @@ defmodule CourseHub.Universities.CampusCourse do
     |> validate_required(@required_fields)
     |> foreign_key_constraint(:campus_id)
     |> foreign_key_constraint(:course_id)
-    |> unique_constraint(:campus_id, name: :campus_id_course_id_index)
+    |> unique_constraint(:course_id, name: :campi_courses_campus_id_course_id_index)
   end
 end
