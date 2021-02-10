@@ -37,6 +37,6 @@ defmodule CourseHub.Universities.Course do
     |> cast(params, @all_fields)
     |> validate_required(@required_fields)
     |> foreign_key_constraint(:university_id)
-    |> unique_constraint(:university_id)
+    |> unique_constraint(:name, name: :courses_name_university_id_index)
   end
 end
